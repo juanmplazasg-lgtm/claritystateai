@@ -201,3 +201,29 @@ if (fadeEls.length) {
 
   rafId = requestAnimationFrame(tick);
 })();
+
+/* Lightbox del video "Clarity en un minuto" (C1M) */
+(function () {
+  const triggers = document.querySelectorAll('[data-c1m-open]');
+  const modal = document.getElementById('c1m-modal');
+  if (!triggers.length || !modal) return;
+  const video = modal.querySelector('video');
+  const closeBtn = modal.querySelector('.c1m-close');
+  function open(e) {
+    if (e) e.preventDefault();
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    if (video) { try { video.currentTime = 0; video.play(); } catch (_) {} }
+  }
+  function close() {
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+    if (video) { try { video.pause(); } catch (_) {} }
+  }
+  triggers.forEach((t) => t.addEventListener('click', open));
+  if (closeBtn) closeBtn.addEventListener('click', close);
+  modal.addEventListener('click', (e) => { if (e.target === modal) close(); });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('open')) close();
+  });
+})();
