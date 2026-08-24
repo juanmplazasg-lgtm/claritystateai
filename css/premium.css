@@ -327,3 +327,41 @@ a.pilar-card { transition: border-color var(--transition), transform var(--trans
   line-height: 1.5;
   color: var(--text-on-light);
 }
+
+/* ============ PÁGINA DE CASOS ============ */
+.caso-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+.caso-block-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 0.9rem;
+  color: var(--text-on-light);
+}
+.caso-block-text {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--text-on-light);
+}
+.caso-quote {
+  margin: 2.5rem 0 0;
+  padding: 1.5rem 1.75rem;
+  border-left: 3px solid var(--accent, #3b82f6);
+  background: rgba(59, 130, 246, 0.05);
+  border-radius: 0 8px 8px 0;
+  max-width: 760px;
+}
+.caso-quote p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  font-style: italic;
+  margin: 0 0 0.75rem;
+}
+.caso-quote cite {
+  font-size: 0.9rem;
+  font-style: normal;
+  opacity: 0.75;
+}
